@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,509&display=swap');
+
+//zmienne i mixiny
+
+$font-color: white;
+$border-color: black;
+$theme-color: #997950;
+$darker-theme-color: darken($theme-color, 32%);
+$border: 3px solid $border-color;
+
+@mixin flex-center($direction: row, $wrap: wrap) {
+    display: flex;
+    flex-flow: $direction $wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes initial-animation{
+    0%{
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    100%{
+      transform: translateY(0%);
+      opacity: 1;
+    }
+}
+
+@keyframes expand-animation{
+    0%{
+      transform: scaleY(20%);
+      opacity: 0;
+    }
+
+    100%{
+      transform: scaleY(100%);
+      opacity: 1;
+    }
+}
+
+// koniec zmiennych i mixinów
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body, #root, .App{
+    @include flex-center(column, nowrap);
+}
+body{
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    background-color: $theme-color;
+    color: white;
+}
+#root, .App{
+    flex-grow: 1;
+    width: 100%;
+}
+
+.header{
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding-bottom: 0.35rem;
+    font-size: 1.75rem;
+    border-bottom: $border;
+}
+
+.main{
+    width: 100%;
+    @include flex-center(column, nowrap);
+    gap: 1.5rem;
+    flex-grow: 1;
+
+    &__btn{
+        padding: 0.5rem 1rem;
+        font-size: 1.35rem;
+        border: $border;
+        border-radius: 10px;
+        background-color: $darker-theme-color;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s ease-in-out all;
+        animation: initial-animation 0.5s ease-in-out;
+    }
+
+    &__btn:hover{
+        padding: 0.5rem 1.75rem;
+    }
+
+    &__section{
+        width: 35%;
+        @include flex-center(column, nowrap);
+        gap: 1.5rem;
+    }
+
+    &__article{
+        width: 100%;
+        border: $border;
+        border-radius: 10px;
+        padding: 1.5rem 2rem;
+        animation: initial-animation 0.5s ease-in-out;
+    }
+
+    &__container--article-header{
+        width: 100%;
+        @include flex-center();
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    &__btn--show-more{
+        width: 20px;
+        height: 20px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        transition: 0.3s all;
+    }
+
+    &__btn--show-more:hover{
+        background-color: $darker-theme-color;
+    }
+
+    &__p{
+        animation: expand-animation 0.5s ease-in-out;
+        transition: 0.5s all;
+        transform-origin: top;
+    }
+
+}
+
+
+

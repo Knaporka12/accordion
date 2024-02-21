@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,509&display=swap");
+@keyframes initial-animation {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes expand-animation {
+  0% {
+    transform: scaleY(20%);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(100%);
+    opacity: 1;
+  }
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body, #root, .App {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background-color: #997950;
+  color: white;
+}
+
+#root, .App {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+  padding-bottom: 0.35rem;
+  font-size: 1.75rem;
+  border-bottom: 3px solid black;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+.main__btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.35rem;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: #2e2418;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out all;
+  animation: initial-animation 0.5s ease-in-out;
+}
+.main__btn:hover {
+  padding: 0.5rem 1.75rem;
+}
+.main__section {
+  width: 35%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.main__article {
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  animation: initial-animation 0.5s ease-in-out;
+}
+.main__container--article-header {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.main__btn--show-more {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s all;
+}
+.main__btn--show-more:hover {
+  background-color: #2e2418;
+}
+.main__p {
+  animation: expand-animation 0.5s ease-in-out;
+  transition: 0.5s all;
+  transform-origin: top;
+}/*# sourceMappingURL=index.css.map */
